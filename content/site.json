@@ -1,0 +1,89 @@
+{
+  "name": "Israel Ilori",
+  "title": "Senior Data & AI Engineer",
+  "location": "Vancouver, BC",
+  "url": "https://tomiwa-ilori.github.io",
+  "description": "Israel Ilori is a Senior Data & AI Engineer in Vancouver building data platforms and production machine learning systems.",
+  "intro": "I build data platforms and production machine learning systems. Over eight years I've worked across advertising, the public sector, finance and technology, and the part I enjoy most is turning a loosely defined business question into a system people can rely on.",
+  "about": [
+    "Right now I work in Ads Intelligence at Aylo, where I build click-prediction models, run our ML services on Kubernetes, and am designing a bid recommendation system. Before that I led a data management platform at the BC Public Service that brought C$1.5 billion in telecom spend across thirteen public-sector entities into one governed view.",
+    "Earlier I trained transformer models for threat and misinformation detection at Logically, built search and data pipelines at HelpSeeker, and started out as a data analyst in banking. I hold an M.Sc. in Data Science from the University of Manchester, and in January 2027 I start the Professional MBA at UBC Sauder, because the problems I care about most are now as much about strategy and teams as about technology."
+  ],
+  "figures": [
+    { "value": "C$1.5B", "label": "telecom spend brought onto one data platform" },
+    { "value": "+32%", "label": "threat-detection accuracy from model upgrades" },
+    { "value": "8+ yrs", "label": "building data and ML systems in production" }
+  ],
+  "experience": [
+    {
+      "role": "Sr. Data Developer",
+      "org": "Aylo",
+      "team": "Ads Intelligence",
+      "start": "Jan 2026",
+      "end": "Present",
+      "summary": "Click-prediction models on billions of ad impressions, ML services on Kubernetes with CI/CD and Prometheus/Jaeger observability, a bid recommendation system, an agentic AI MVP, an image-understanding service, and a ClickHouse schema migration across distributed tables."
+    },
+    {
+      "role": "Sr. Data Engineer",
+      "org": "BC Public Service",
+      "team": "Ministry of Citizens' Services",
+      "start": "Feb 2024",
+      "end": "Mar 2026",
+      "summary": "Led the Data Management Platform for telecom spend across 13 entities. Event-driven ETL on AWS (S3, Glue, Lambda, Athena) with Terraform, and Power BI reporting for executive leadership."
+    },
+    {
+      "role": "Sr. Data Engineer",
+      "org": "HelpSeeker Technologies",
+      "start": "Mar 2023",
+      "end": "Dec 2023",
+      "summary": "Python ETL and Airflow pipelines for the Karto platform, and a document similarity model deployed on Kubernetes for search."
+    },
+    {
+      "role": "Data Scientist",
+      "org": "Logically",
+      "start": "Dec 2021",
+      "end": "Feb 2023",
+      "summary": "Led ML upgrades to the Logically Intelligence platform that raised threat-detection accuracy by 32%, rebuilt transformer classification pipelines, and ran MLOps on GCP."
+    },
+    {
+      "role": "Data Scientist",
+      "org": "TruTalent Inc.",
+      "start": "Oct 2020",
+      "end": "Nov 2021",
+      "summary": "Designed the NLP matching system that ranked candidates against job descriptions, working directly with the founders."
+    },
+    {
+      "role": "Data Analyst",
+      "org": "Stanbic IBTC Bank",
+      "start": "Dec 2015",
+      "end": "Aug 2018",
+      "summary": "Dashboards for senior management in Tableau and Power BI, and financial trend analysis in Python and SQL."
+    }
+  ],
+  "education": [
+    { "name": "Professional MBA", "school": "UBC Sauder School of Business", "note": "Starting January 2027" },
+    { "name": "M.Sc. Data Science", "school": "University of Manchester" },
+    { "name": "B.Sc. Computer Science", "school": "Joseph Ayo Babalola University" }
+  ],
+  "certifications": [
+    "Google Cloud Data Engineer",
+    "AWS Machine Learning (AWS/Udacity)",
+    "Generative AI with AWS (AWS/Udacity)",
+    "MLOps in Production (Udemy)",
+    "Complete Agentic AI and MCP (Udemy)",
+    "Practical Data Science (Coursera)",
+    "ML Engineering for Production (Coursera)"
+  ],
+  "skills": {
+    "Languages": "Python, SQL",
+    "ML & AI": "XGBoost, PyTorch, TensorFlow, HuggingFace, LangGraph, LangChain, CrewAI, AutoGen, Ollama, FAISS, MLflow",
+    "Data": "ClickHouse, PostgreSQL, Snowflake, BigQuery, Redshift, Airflow, dbt, AWS Glue, Azure Data Factory, MS Fabric",
+    "Platform": "Docker, Kubernetes, FastAPI, Terraform, CI/CD, Prometheus, Jaeger, GCP, AWS",
+    "Reporting": "Power BI, Tableau, Grafana"
+  },
+  "contact": {
+    "email": "israel_ilori@yahoo.com",
+    "linkedin": "https://www.linkedin.com/in/israelilori/",
+    "medium": "https://medium.com/@ogenepabo"
+  }
+}
