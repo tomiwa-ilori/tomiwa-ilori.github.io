@@ -5,7 +5,7 @@ summary: Picking a framework you can explain, choosing a model you can legally s
 tags: agentic AI, LangGraph, LLMs
 ---
 
-I recently built our team's first agentic AI MVP. It's a small service: a request comes in, an LLM reasons about it, calls a few tools, and returns a decision with an explanation. Small as it is, it made me revisit a few assumptions.
+I recently built our team's first agentic AI system: an assistant that reviews ad content against policy and recommends approve, reject or escalate. It's a small service: a submission comes in, an LLM reasons about it, calls a few tools, and returns a decision with an explanation. Small as it is, it made me revisit a few assumptions.
 
 ## Pick the framework whose abstraction matches the code
 
@@ -31,4 +31,4 @@ I changed the input to just the raw content. Now the model has to do the real wo
 
 ## What's next
 
-The same pattern is now shaping how we bring LLM tooling into bid recommendations. There, the agent's job isn't to choose the bid. A model and a clear rule do that. The agent gathers the right context, calls the right tools, and explains the result in plain language.
+The same pattern fits other places where the hard part is gathering context and explaining a decision, not making it. A bid recommendation is a good example. There, a model and a clear rule should choose the bid, and an agent's job would be to pull the right data, call the right tools, and explain the result in plain language.

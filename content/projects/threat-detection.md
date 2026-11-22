@@ -2,7 +2,7 @@
 title: Threat and misinformation detection
 org: Logically
 period: 2021–2023
-order: 5
+order: 7
 summary: Model upgrades to the Logically Intelligence platform that raised threat-detection accuracy by 32%, on MLOps pipelines I ran on GCP.
 stack: Python, BERT, DistilRoBERTa, Longformer, HuggingFace, Elasticsearch, Vertex AI, Pub/Sub, Cloud Composer, MLflow, FastAPI, Docker, Terraform
 ---

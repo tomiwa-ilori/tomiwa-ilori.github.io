@@ -1,18 +1,27 @@
 {
   "name": "Israel Ilori",
-  "title": "Senior Data & AI Engineer",
+  "title": "Data & AI Lead",
   "location": "Vancouver, BC",
   "url": "https://tomiwa-ilori.github.io",
-  "description": "Israel Ilori is a Senior Data & AI Engineer in Vancouver building data platforms and production machine learning systems.",
-  "intro": "I build data platforms and production machine learning systems. Over eight years I've worked across advertising, the public sector, finance and technology, and the part I enjoy most is turning a loosely defined business question into a system people can rely on.",
+  "description": "Israel Ilori is a Data & AI Lead in Vancouver who builds data platforms and production machine learning systems that people use to make decisions.",
+  "intro": "I build data, machine learning and AI systems that people use to make decisions: who to show an ad to, where an advertiser is overpaying, where public money is being spent. I start from the business question, build the data and models that answer it, and see them through to production and adoption.",
   "about": [
-    "Right now I work in Ads Intelligence at Aylo, where I build click-prediction models, run our ML services on Kubernetes, and am designing a bid recommendation system. Before that I led a data management platform at the BC Public Service that brought C$1.5 billion in telecom spend across thirteen public-sector entities into one governed view.",
-    "Earlier I trained transformer models for threat and misinformation detection at Logically, built search and data pipelines at HelpSeeker, and started out as a data analyst in banking. I hold an M.Sc. in Data Science from the University of Manchester, and in January 2027 I start the Professional MBA at UBC Sauder, because the problems I care about most are now as much about strategy and teams as about technology."
+    "Right now I work in Ads Intelligence at Aylo, on a high-volume advertising platform. I built the bid tracking pipeline our product team uses to see who wins each auction and why, designed a bid recommendation system on top of it, and improved our click-prediction model and the service that runs it. Before that, at the BC Public Service, I led a data management platform that brought C$1.5 billion in telecom spend across thirteen public-sector entities into one governed view.",
+    "Earlier I trained transformer models for threat and misinformation detection at Logically, built search and data pipelines at HelpSeeker, and started out as a data analyst in banking. I mentor students in UBC's Master of Data Science program, and in January 2027 I start the Professional MBA at UBC Sauder, because the problems I care about most are now as much about strategy and teams as about technology."
   ],
   "figures": [
-    { "value": "C$1.5B", "label": "telecom spend brought onto one data platform" },
-    { "value": "+32%", "label": "threat-detection accuracy from model upgrades" },
-    { "value": "8+ yrs", "label": "building data and ML systems in production" }
+    {
+      "value": "C$1.5B",
+      "label": "telecom spend brought onto one data platform, saving 7 analyst hires"
+    },
+    {
+      "value": "+32%",
+      "label": "threat-detection accuracy from model upgrades at Logically"
+    },
+    {
+      "value": "8+ yrs",
+      "label": "building data and ML systems in production"
+    }
   ],
   "experience": [
     {
@@ -21,7 +30,7 @@
       "team": "Ads Intelligence",
       "start": "Jan 2026",
       "end": "Present",
-      "summary": "Click-prediction models on billions of ad impressions, ML services on Kubernetes with CI/CD and Prometheus/Jaeger observability, a bid recommendation system, an agentic AI MVP, an image-understanding service, and a ClickHouse schema migration across distributed tables."
+      "summary": "Built the daily bid tracking pipeline the product team uses to guide bid pricing, and designed a bid recommendation system on its findings. Improved the click-prediction model and made the service faster with more capacity using ONNX and async FastAPI on Kubernetes. Built a CLIP model that predicts ad-image clickability, a Moondream2 image-understanding service, and the team's first agentic AI assistant. Now building a smart alerting service that turns the many alerts one outage triggers into a single clear alert."
     },
     {
       "role": "Sr. Data Engineer",
@@ -29,7 +38,7 @@
       "team": "Ministry of Citizens' Services",
       "start": "Feb 2024",
       "end": "Mar 2026",
-      "summary": "Led the Data Management Platform for telecom spend across 13 entities. Event-driven ETL on AWS (S3, Glue, Lambda, Athena) with Terraform, and Power BI reporting for executive leadership."
+      "summary": "Led the Data Management Platform for C$1.5B in telecom spend across 13 entities, automating reporting that would otherwise have needed 7 more analysts. Event-driven ETL on AWS (S3, Glue, Lambda, Athena) with Terraform and Power BI reporting for leadership. As the only technical member of a team of 2, I taught data concepts in plain language so the team could read dashboards and explain spend on their own."
     },
     {
       "role": "Sr. Data Engineer",
@@ -61,9 +70,19 @@
     }
   ],
   "education": [
-    { "name": "Professional MBA", "school": "UBC Sauder School of Business", "note": "Starting January 2027" },
-    { "name": "M.Sc. Data Science", "school": "University of Manchester" },
-    { "name": "B.Sc. Computer Science", "school": "Joseph Ayo Babalola University" }
+    {
+      "name": "Professional MBA",
+      "school": "UBC Sauder School of Business",
+      "note": "Starting January 2027"
+    },
+    {
+      "name": "M.Sc. Data Science",
+      "school": "University of Manchester"
+    },
+    {
+      "name": "B.Sc. Computer Science",
+      "school": "Joseph Ayo Babalola University"
+    }
   ],
   "certifications": [
     "Google Cloud Data Engineer",
@@ -75,8 +94,8 @@
     "ML Engineering for Production (Coursera)"
   ],
   "skills": {
-    "Languages": "Python, SQL",
-    "ML & AI": "XGBoost, PyTorch, TensorFlow, HuggingFace, LangGraph, LangChain, CrewAI, AutoGen, Ollama, FAISS, MLflow",
+    "Languages": "Python (Pandas, NumPy, scikit-learn), SQL",
+    "ML & AI": "XGBoost, PyTorch, TensorFlow, ONNX Runtime, HuggingFace, CLIP, LangGraph, LangChain, CrewAI, AutoGen, Ollama, FAISS, RAG, MLflow",
     "Data": "ClickHouse, PostgreSQL, Snowflake, BigQuery, Redshift, Airflow, dbt, AWS Glue, Azure Data Factory, MS Fabric",
     "Platform": "Docker, Kubernetes, FastAPI, Terraform, CI/CD, Prometheus, Jaeger, GCP, AWS",
     "Reporting": "Power BI, Tableau, Grafana"
@@ -85,5 +104,14 @@
     "email": "israel_ilori@yahoo.com",
     "linkedin": "https://www.linkedin.com/in/israelilori/",
     "medium": "https://medium.com/@ogenepabo"
-  }
+  },
+  "leadership": [
+    {
+      "role": "Industry Mentor",
+      "org": "UBC Master of Data Science Program",
+      "start": "Nov 2026",
+      "end": "Present",
+      "summary": "I mentor Master of Data Science students: setting goals with them, guiding their career direction and industry practice in data and ML, and helping them make the move from academic projects to production work."
+    }
+  ]
 }

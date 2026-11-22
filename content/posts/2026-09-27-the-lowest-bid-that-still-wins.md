@@ -19,11 +19,11 @@ That question has a clear answer, and it's still useful. It tells an advertiser 
 
 ## Let the model estimate, let a rule decide
 
-Instead of predicting a bid, the model predicts the chance of winning at a given bid. Then we ask it about many candidate bids and draw the curve. For example, at $0.02 you win 30% of the time, at $0.03 you win 65%, at $0.038 you cross 80%.
+Instead of predicting a bid, the model predicts the chance of winning at a given bid. Then we ask it about many candidate bids and draw the curve. For example, at a $0.010 CPM bid you might win 40% of the time, at $0.015 about 70%, and somewhere near $0.018 you cross 80%.
 
 The recommendation is simply the first bid on that curve that clears the target.
 
-This split does two things. It keeps the model's job narrow and testable, and it makes the answer easy to explain. "The model expects you to win 80% of these auctions at $0.038" is something a person can check and argue with. A bid produced directly by a model is much harder to question.
+This split does two things. It keeps the model's job narrow and testable, and it makes the answer easy to explain. "The model expects you to win 80% of these auctions at $0.018" is something a person can check and argue with. A bid produced directly by a model is much harder to question.
 
 ## Three rules that make it trustworthy
 

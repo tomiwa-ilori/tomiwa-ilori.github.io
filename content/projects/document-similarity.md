@@ -2,7 +2,7 @@
 title: Search and data pipelines for Karto
 org: HelpSeeker Technologies
 period: 2023
-order: 6
+order: 8
 summary: Automated ingestion for the Karto platform and a document similarity model that made search results more relevant.
 stack: Python, Airflow, HuggingFace, NLP, Flask, Kubernetes, Terraform, SQL, NoSQL
 ---

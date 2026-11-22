@@ -1,25 +1,29 @@
 ---
-title: Click prediction at ad-traffic scale
+title: Faster, sharper click prediction
 org: Aylo · Ads Intelligence
 period: 2026
-order: 2
-summary: XGBoost click-prediction models trained across billions of ad impressions, with calibration and a model promotion workflow, served on Kubernetes.
-stack: Python, XGBoost, ClickHouse, GCS, Kubernetes, CI/CD, Prometheus, Jaeger
+order: 3
+summary: A more accurate click-prediction model, and a faster serving stack with more capacity, for high-volume ad traffic.
+stack: Python, XGBoost, ONNX Runtime, FastAPI, Kubernetes, ClickHouse, GCS
 ---
 
 ## The problem
 
-Ad traffic at this volume needs a reliable estimate of how likely an impression is to be clicked. That estimate feeds decisions downstream, so it has to be accurate as a probability, not just good at ranking.
+Every ad impression needs an estimate of how likely it is to be clicked. At this volume, the model has to be both accurate and fast: a small gain in accuracy changes which ads people see, and a small gain in speed changes how much hardware the service needs.
 
-## What I built
+## A better model
 
-- **Training pipelines** that pull impression and click data from ClickHouse and train XGBoost models across billions of ad impressions.
-- **Probability calibration**, so a predicted 2% click rate really behaves like 2% when you look at the traffic it was applied to.
-- **A model promotion workflow.** New models are versioned in GCS and only replace the current one once they pass checks, so a bad retrain doesn't reach production.
+I improved the XGBoost click-prediction model and raised its AUC. In plain terms, the model got noticeably better at telling apart the impressions that will be clicked from the ones that won't.
 
-## Running it in production
+## A faster service
 
-I led the move of our ML services onto Kubernetes. That meant adding CI/CD so changes ship the same way every time, model versioning so we always know which model is serving, and Prometheus and Jaeger so we can see latency, errors and request traces when something slows down.
+I also reworked how the model is served:
+
+- **ONNX Runtime** for inference
+- **Async FastAPI** endpoints, so the service handles many requests at once instead of waiting on each one
+- running on **Kubernetes**
+
+The result is a noticeably faster service that can handle more traffic.
 
 ## Why it matters beyond clicks
 

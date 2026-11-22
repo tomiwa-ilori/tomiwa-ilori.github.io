@@ -7,6 +7,7 @@ import { marked } from 'marked';
 const ROOT = path.dirname(new URL(import.meta.url).pathname);
 const C = (...p) => path.join(ROOT, 'content', ...p);
 const OUT = path.join(ROOT, 'dist');
+const hasResume = fs.existsSync(path.join(ROOT, 'static', 'resume.pdf'));
 const site = JSON.parse(fs.readFileSync(C('site.json'), 'utf8'));
 
 // ---------- helpers ----------
@@ -46,26 +47,29 @@ const posts = load('posts').filter(p => !p.draft).sort((a, b) => String(b.date).
 function winChart() {
   const W = 440, H = 280, L = 48, R = 20, T = 20, B = 44;
   const pw = W - L - R, ph = H - T - B;
-  const bmax = 0.07, target = 0.8;
-  const p = b => 1 / (1 + Math.exp(-(b - 0.0265) / 0.0082));        // illustrative curve
+  const bmax = 0.05, target = 0.8, flat = 0.03;
+  const p = b => 0.9 / (1 + Math.exp(-(b - 0.011) / 0.0035));       // illustrative curve that levels off
   const x = b => L + (b / bmax) * pw, y = v => T + (1 - v) * ph;
   let bstar = 0; while (p(bstar) < target) bstar += 0.0001;          // lowest bid clearing target
   const pts = []; for (let b = 0; b <= bmax + 1e-9; b += bmax / 140) pts.push(`${x(b).toFixed(1)},${y(p(b)).toFixed(1)}`);
   const area = `M${x(0)},${y(0)} L${pts.join(' L')} L${x(bmax)},${y(0)} Z`;
   const yt = [0, 0.25, 0.5, 0.75, 1].map(v => `<line class="grid" x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text class="tick" x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v * 100}%</text>`).join('');
-  const xt = [0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07].map(b => `<text class="tick" x="${x(b)}" y="${H - B + 18}" text-anchor="middle">${b === 0 ? '$0' : '$' + b.toFixed(2)}</text>`).join('');
+  const xt = [0, 0.01, 0.02, 0.03, 0.04, 0.05].map(b => `<text class="tick" x="${x(b)}" y="${H - B + 18}" text-anchor="middle">${b === 0 ? '$0' : '$' + b.toFixed(2)}</text>`).join('');
   const bs = bstar.toFixed(3);
-  return `<svg class="winchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Illustrative curve of win probability rising with bid. The lowest bid reaching an 80% chance of winning is about $${bs}.">
+  return `<svg class="winchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Illustrative curve of win rate rising with bid and levelling off past a point. The lowest bid reaching an 80% win rate is about $${bs}.">
+  <rect class="flat-zone" x="${x(flat)}" y="${T}" width="${x(bmax) - x(flat)}" height="${ph}"/>
   ${yt}${xt}
+  <text class="flat-label" x="${(x(flat) + x(bmax)) / 2}" y="${y(0.32)}" text-anchor="middle">past a point,</text>
+  <text class="flat-label" x="${(x(flat) + x(bmax)) / 2}" y="${y(0.32) + 15}" text-anchor="middle">wins barely move</text>
   <path class="curve-area" d="${area}"/>
   <polyline class="curve" points="${pts.join(' ')}"/>
   <line class="target" x1="${L}" x2="${W - R}" y1="${y(target)}" y2="${y(target)}"/>
-  <text class="target-label" x="${W - R}" y="${y(target) - 8}" text-anchor="end">target 80%</text>
+  <text class="target-label" x="${L + 6}" y="${y(target) - 8}">target 80%</text>
   <line class="drop" x1="${x(bstar)}" x2="${x(bstar)}" y1="${y(target)}" y2="${y(0)}"/>
   <circle class="pick" cx="${x(bstar)}" cy="${y(target)}" r="5.5"/>
   <text class="pick-label" x="${x(bstar) + 10}" y="${y(target) + 22}">bid $${bs}</text>
-  <text class="axis" x="${L + pw / 2}" y="${H - 6}" text-anchor="middle">bid</text>
-  <text class="axis" x="14" y="${T + ph / 2}" text-anchor="middle" transform="rotate(-90 14 ${T + ph / 2})">P(win)</text>
+  <text class="axis" x="${L + pw / 2}" y="${H - 6}" text-anchor="middle">CPM bid</text>
+  <text class="axis" x="14" y="${T + ph / 2}" text-anchor="middle" transform="rotate(-90 14 ${T + ph / 2})">win rate</text>
 </svg>`;
 }
 
@@ -76,8 +80,7 @@ function layout({ title, description, depth = 0, body, active = '', canonical = 
     ['Projects', `${r}index.html#projects`, 'projects'],
     ['Experience', `${r}index.html#experience`, 'experience'],
     ['Writing', `${r}blog/index.html`, 'blog'],
-    ['Resume', `${r}resume.pdf`, 'resume'],
-  ].map(([t, h, k]) => `<a href="${h}"${k === active ? ' aria-current="page"' : ''}>${t}</a>`).join('');
+  ].concat(hasResume ? [['Resume', `${r}resume.pdf`, 'resume']] : []).map(([t, h, k]) => `<a href="${h}"${k === active ? ' aria-current="page"' : ''}>${t}</a>`).join('');
   const fullTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.title}`;
   return `<!doctype html>
 <html lang="en">
@@ -160,12 +163,12 @@ function home() {
     <p class="lede">${esc(s.intro)}</p>
     <div class="actions">
       <a class="btn" href="#projects">See my projects</a>
-      <a class="btn ghost" href="resume.pdf">Download resume</a>
+      ${hasResume ? '<a class="btn ghost" href="resume.pdf">Download resume</a>' : `<a class="btn ghost" href="${esc(s.contact.linkedin)}">View LinkedIn</a>`}
     </div>
   </div>
   <figure class="hero-fig">
     ${winChart()}
-    <figcaption><strong>What I'm working on.</strong> Recommending the lowest bid that still reaches a target chance of winning an ad auction. Illustrative curve.</figcaption>
+    <figcaption><strong>What I&rsquo;m working on.</strong> Recommending the lowest bid that still wins a target share of auctions, because past a certain point a higher bid barely wins more. Illustrative curve.</figcaption>
   </figure>
 </section>
 
@@ -196,6 +199,16 @@ function home() {
       </div>
     </li>`).join('')}
   </ol>
+  ${(s.leadership||[]).length ? `<h3 class="minor" id="leadership">Leadership &amp; mentorship</h3>
+  <ol class="timeline">${s.leadership.map(e => `
+    <li>
+      <span class="when">${esc(e.start)} – ${esc(e.end)}</span>
+      <div>
+        <h3>${esc(e.role)}</h3>
+        <p class="team">${esc(e.org)}</p>
+        <p>${esc(e.summary)}</p>
+      </div>
+    </li>`).join('')}</ol>` : ''}
   <div class="two-col">
     <div>
       <h3 class="minor">Education</h3>

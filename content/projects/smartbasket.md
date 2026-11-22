@@ -2,7 +2,7 @@
 title: SmartBasket
 org: Founder · Startup concept
 period: 2026
-order: 7
+order: 9
 summary: A clip-on RFID device that turns an ordinary retail basket into one that shows a running total as you shop.
 stack: RFID, e-ink display, hardware concept, business planning
 status: Concept stage

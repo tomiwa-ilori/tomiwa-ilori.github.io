@@ -2,8 +2,8 @@
 title: A single view of C$1.5B in telecom spend
 org: BC Public Service · Ministry of Citizens' Services
 period: 2024–2026
-order: 4
-summary: A data management platform that consolidated telecom spend across 13 public-sector entities and automated monthly reporting for leadership.
+order: 6
+summary: A data management platform that consolidated telecom spend across 13 public-sector entities and automated reporting that would otherwise have needed 7 more analysts.
 stack: Python, AWS S3, Glue, Lambda, Athena, Parquet, Terraform, Power BI
 ---
 
@@ -22,4 +22,8 @@ I led the implementation of a Data Management Platform covering more than C$1.5 
 
 ## Outcome
 
-Monthly financial reporting became automated, and standardized pipelines meant every report was built the same way. Leadership moved from reconciling inconsistent spreadsheets to one governed, consistent view of spend across the ministry.
+Monthly financial reporting became automated, removing the need to hire **7 additional analysts**, and standardized pipelines meant every report was built the same way. Leadership moved from reconciling inconsistent spreadsheets to one governed, consistent view of spend across the ministry.
+
+## Bringing the team along
+
+I was the only technical member of a team of two. I explained data concepts in plain language and wrote documentation in Confluence, so my colleagues could read the dashboards on their own, raise data issues, and explain spend figures to leadership without me in the room.
